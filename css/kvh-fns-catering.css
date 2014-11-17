@@ -1,0 +1,89 @@
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body, input { 
+    font-family: "Segoe UI Light","Segoe UI",Arial,sans-serif; 
+    font-size: 16px; 
+}
+table { 
+    margin: 2em auto;
+    border-collapse: collapse; 
+    border-spacing: 0; 
+}
+th {
+    padding-bottom: 1em;
+    vertical-align: bottom;
+    line-height: 1em; 
+    font-size: .85em;
+    font-weight: bold;
+}
+.item { 
+    line-height: 1.8em; 
+    vertical-align: middle; 
+}
+.item:hover { background-color: #EEEEEE; }
+.tablecelldecimal2 { 
+    padding-left: 1em; 
+    text-align: right; 
+}
+.itemcategory { 
+    line-height: 1.8em !important; 
+    font-size: .85em;
+    border-bottom: 1px solid black; 
+}
+#itemtable input { 
+    height: 1.5em;
+    margin-left: 6px;
+    padding: 1px;
+    padding-right: .5em;
+    font-size: .95em;
+    font-weight: normal;
+    text-align: right;
+    lxine-height: 1em;
+    border: 1px solid #CCCCCC;
+}
+#itemtable input[name^="itemtot"] {
+    border: 1px solid white;
+}
+#off-itemtable input[type="button"] {
+    border: 1px solid #EEEEEE;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    behavior: url(css/PIE-1.0.0/PIE.htc);
+}
+#itemtable input[type="button"] {
+    width: 1.33em;
+    height: 1.33em;
+    padding: 0;
+    margin: 0;
+    margin-top: -2px;
+    font-size: 21px;
+    font-family: "Segoe UI", Arial, sans-serif !important;
+    text-align: center;
+    vertical-align: text-top;
+    color: white;
+}
+#itemtable input[type="button"]:hover {
+    cursor: pointer; 
+    cursor: hand;
+}
+#itemtable input[name^="itemadd"] {
+    border: 1px solid #99EE99;
+    background: #99EE99;
+    margin-left: 6px;
+}
+#itemtable input[name^="itemdel"] {
+    border: 1px solid #EE9999;
+    background: #EE9999;
+}
+#itemtable input[name^="itemadd"]:hover {
+    border: 1px solid #00BB00;
+    background: #00BB00;
+}#itemtable input[name^="itemdel"]:hover {
+    border: 1px solid #BB0000;
+    background: #BB0000;
+}
