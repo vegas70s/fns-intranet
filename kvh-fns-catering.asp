@@ -15,6 +15,7 @@
     dim Field
     dim RowID
     dim RowNum
+    dim ItemCost
     dim CategoryPrevious
     dim TableData
 
@@ -94,15 +95,17 @@ while not RS.eof
                     TableData = "<tr class=""item"">" & vbCRLFTB & "<td>&nbsp;</td>"
                 end if
 
+
             elseif Field.Name = "Cost" then
+                ItemCost = FormatNumber(Field.Value,2)
                 TableData = vbCRLFTB & _
-                    "<td class=""tablecelldecimal2"">" & FormatNumber(Field.Value,2) & "</td>" & _
+                    "<td><input name=""itemcost" & RowID & """ size=3 value=""" & ItemCost & """ ></td>" & _
                     vbCRLFTB &_
                     "<td><input name=""itemqty" & RowID & """ size=3 value="""" ></td>" & _
                     vbCRLFTB & _
-                     "<td id=""total" & RowID & """><input name=""itemtot" & RowID & """ size=3 value=""0.00""></td>" & _
+                     "<td><input name=""itemtot" & RowID & """ size=3 value=""0.00""></td>" & _
                     vbCRLFTB & _
-                    "<td id=""adddel" & RowID & """><input type=""button"" " & _
+                    "<td><input type=""button"" " & _
                         "name=""itemadd" & RowID & """ value=""+""><input type=""button"" " & _
                         "name=""itemdel" & RowID & """ value=""-""></td>"
             else
