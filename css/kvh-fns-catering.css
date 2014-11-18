@@ -10,12 +10,14 @@ body, input {
 }
 table { 
     margin: 2em auto;
+    table-layout: fixed;
     border-collapse: collapse; 
     border-spacing: 0; 
 }
 th {
     padding-bottom: 1em;
     vertical-align: bottom;
+    word-wrap: break-word;
     line-height: 1em; 
     font-size: .85em;
     font-weight: bold;

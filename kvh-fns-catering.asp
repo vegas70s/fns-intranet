@@ -74,51 +74,49 @@ next
 <tbody>
 
 <% 'Table Rows'
-if not RS.eof then
-	while not RS.eof
+while not RS.eof
 
-        RowNum = RowNum + 1
-        RowID = cStr(RowNum)
-        if RowNum < 10 then RowID = "0" & RowID 
+    RowNum = RowNum + 1
+    RowID = cStr(RowNum)
+    if RowNum < 10 then RowID = "0" & RowID 
 
-    		for each Field in RS.Fields
+		for each Field in RS.Fields
 
-                if Field.Name = "Category" then
-                    'If new Category, DisplayCategoryRow'
-                    if CategoryPrevious <> Field.Value then
-                        CategoryPrevious = Field.Value
-                        TableData = "<tr class=""itemcategory"">" & vbCRLFTB & _
-                            "<td colspan=" & RS.Fields.Count + 3 & ">" & Field.Value  & _
-                            "</td>" & vbCRLF & "</tr>" & vbCRLF & _
-                            "<tr class=""item"">" & vbCRLFTB & "<td>&nbsp;</td>"
-                    else
-                        TableData = "<tr class=""item"">" & vbCRLFTB & "<td>&nbsp;</td>"
-                    end if
-
-                elseif Field.Name = "Cost" then
-                    TableData = vbCRLFTB & _
-                        "<td class=""tablecelldecimal2"">" & FormatNumber(Field.Value,2) & "</td>" & _
-                        vbCRLFTB &_
-                        "<td><input name=""itemqty" & RowID & """ size=3 value="""" ></td>" & _
-                        vbCRLFTB & _
-                         "<td id=""total" & RowID & """><input name=""itemtot" & RowID & """ size=3 value=""0.00""></td>" & _
-                        vbCRLFTB & _
-                        "<td id=""adddel" & RowID & """><input type=""button"" " & _
-                            "name=""itemadd" & RowID & """ value=""+""><input type=""button"" " & _
-                            "name=""itemdel" & RowID & """ value=""-""></td>"
+            if Field.Name = "Category" then
+                'If new Category, DisplayCategoryRow'
+                if CategoryPrevious <> Field.Value then
+                    CategoryPrevious = Field.Value
+                    TableData = "<tr class=""itemcategory"">" & vbCRLFTB & _
+                        "<td colspan=" & RS.Fields.Count + 3 & ">" & Field.Value  & _
+                        "</td>" & vbCRLF & "</tr>" & vbCRLF & _
+                        "<tr class=""item"">" & vbCRLFTB & "<td>&nbsp;</td>"
                 else
-                    TableData = "<td>" & Field.Value & "</td>"
+                    TableData = "<tr class=""item"">" & vbCRLFTB & "<td>&nbsp;</td>"
                 end if
 
-                response.write TableData
+            elseif Field.Name = "Cost" then
+                TableData = vbCRLFTB & _
+                    "<td class=""tablecelldecimal2"">" & FormatNumber(Field.Value,2) & "</td>" & _
+                    vbCRLFTB &_
+                    "<td><input name=""itemqty" & RowID & """ size=3 value="""" ></td>" & _
+                    vbCRLFTB & _
+                     "<td id=""total" & RowID & """><input name=""itemtot" & RowID & """ size=3 value=""0.00""></td>" & _
+                    vbCRLFTB & _
+                    "<td id=""adddel" & RowID & """><input type=""button"" " & _
+                        "name=""itemadd" & RowID & """ value=""+""><input type=""button"" " & _
+                        "name=""itemdel" & RowID & """ value=""-""></td>"
+            else
+                TableData = "<td>" & Field.Value & "</td>"
+            end if
 
-    		next
+            response.write TableData
 
-		response.write vbCRLF & "</tr>" & vbCRLF
-		RS.movenext
+		next
 
-	wend
-end if
+	response.write vbCRLF & "</tr>" & vbCRLF
+	RS.movenext
+
+wend
 
 CloseConnection()
 
